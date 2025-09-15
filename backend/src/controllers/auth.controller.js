@@ -22,11 +22,11 @@ async function registerUser(req,res){//register user function
 
     const token = jwt.sign({
         id : user._id,
-    },"7d99a04a17242ec52ff1584170a0d4fb")
+    },process.env.JWT_SECRET)
 
     res.cookie("token", token);//set cookie
 
-    res.status(200).json({//send response
+    res.status(201).json({//send response
         message : "user registered successfully",
         user:{
             id: user._id,
@@ -36,6 +36,43 @@ async function registerUser(req,res){//register user function
     })
 }
 
+async function loginUser(req,res){//login user function
+    const {email,password} = req.body;
+
+    const user = await userModel.findOne({email});//find user by email
+
+    if(!user){
+        return res.status(400).json({
+            message : "Invalid email and password"
+        })
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);//compare password
+
+    if(!isPasswordValid){
+        res.status(400).json({
+            message : "Invalid email and password"
+        })
+    }
+    
+    const token = jwt.sign({
+        _id : user._id,
+    },process.env.JWT_SECRET)//generate token
+
+    res.cookie("token", token);//set cookie
+
+    res.status(200).json({//send response
+        message : "User logged in successfully", 
+        user:{
+            _id : user._id,
+            email : user.email,
+            fullName : user.fullName
+        }
+        })
+
+}
+
 module.exports ={
     registerUser,
+    loginUser
 }
