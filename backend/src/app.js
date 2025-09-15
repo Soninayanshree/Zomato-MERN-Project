@@ -2,16 +2,18 @@
 const express = require("express");//import express
 const cookieParser = require("cookie-parser");//import cookie parser
 const authRoutes = require("./routes/auth.routes");//import auth routes
+const foodRoutes = require("./routes/food.routes");//import food routes
 
 const app = express();//instanctiate express
 
-app.use(cookieParser());//to parse cookies
 app.use(express.json());//to accept json data
+app.use(cookieParser());//to parse cookies
 
 app.get("/",(req,res) => {
     res.send("hello nayan")
 });
 
 app.use("/api/auth",authRoutes);//use auth routes
+app.use("/api/food",foodRoutes);//use food routes
 
 module.exports = app;//export app
