@@ -1,0 +1,28 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.env
+.DS_Store
+/dist
+/build
+*.log
+
+# VS Code
+.vscode/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+
+# Optional: Ignore coverage reports
+coverage/
+
+# Optional: Ignore frontend build artifacts
+frontend/dist/
+frontend/build/
