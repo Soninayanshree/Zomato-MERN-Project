@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({//user schema is created
     },
 },
 {  
-      timestamps : true//when user is created and updated
+    timestamps : true//when user is created and updated
 }
 );
 
