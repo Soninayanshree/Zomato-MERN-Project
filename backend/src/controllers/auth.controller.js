@@ -84,7 +84,7 @@ async function registerFoodPartner(req,res){//register food partner function
     console.log("Headers:", req.headers);
      console.log("Request body:", req.body);
 
-    const { name , email , password } = req.body;
+    const { name , email , contact , address, password } = req.body;
 
     const isAccountAlreadyExists =await foodPartnerModel.findOne({email});
 
@@ -98,6 +98,8 @@ async function registerFoodPartner(req,res){//register food partner function
     const foodPartner = await foodPartnerModel.create({//create food partner
         name,
         email,
+        contact,
+        address,
         password : hashedPassword,
     });
 
@@ -112,6 +114,8 @@ async function registerFoodPartner(req,res){//register food partner function
         foodPartner:{
             _id: foodPartner._id,
             email: foodPartner.email,
+            contact: foodPartner.contact,
+            address: foodPartner.address,
             name: foodPartner.name,
         }
     })

@@ -1,0 +1,27 @@
+@import "./theme.css";
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: var(--color-bg-dark); */
+  /* background: linear-gradient(#020118,#690f7a); */
+  background: linear-gradient(#6c63ff, #fff);
+  /* color: #6C63FF; */
+  padding: 2rem;
+  text-align: center;
+  font-family: sans-serif;
+}
+p {
+  font-size: 5rem;
+  font-weight: 700;
+  /* text-decoration: solid;
+    color:transparent;
+    background-clip-text: linear-gradient(#6C63FF,#590a5c,#fff);
+    background-clip:content-box; */
+  background: linear-gradient(#030c41,#6C63FF); /* Gradient colors */
+  -webkit-background-clip: text; /* Apply gradient to text */
+  -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+  background-clip: text; /* Standard property */
+  color: transparent; /* Fallback */
+}
