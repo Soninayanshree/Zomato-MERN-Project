@@ -15,14 +15,3 @@ yarn-error.log
 # OS generated files
 Thumbs.db
 Desktop.ini
-
-# Logs
-logs/
-*.log
-
-# Optional: Ignore coverage reports
-coverage/
-
-# Optional: Ignore frontend build artifacts
-frontend/dist/
-frontend/build/

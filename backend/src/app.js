@@ -3,7 +3,9 @@ const express = require("express");//import express
 const cookieParser = require("cookie-parser");//import cookie parser
 const authRoutes = require("./routes/auth.routes");//import auth routes
 const foodRoutes = require("./routes/food.routes");//import food routes
+const commentRoutes = require("./routes/comment.routes");//import comment routes
 const cors = require("cors");//import cors for cross origin resource sharing
+const foodPartnerRoutes = require("./routes/food-partner.routes");
 
 const app = express();//instanctiate express
 
@@ -20,5 +22,7 @@ app.get("/",(req,res) => {
 
 app.use("/api/auth",authRoutes);//use auth routes
 app.use("/api/food",foodRoutes);//use food routes
+app.use('/api/food-partner',foodPartnerRoutes);//use food-partner routes
+app.use("/api",commentRoutes);
 
 module.exports = app;//export app
